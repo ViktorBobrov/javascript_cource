@@ -1,93 +1,126 @@
- //для рафаэлки
- let dog = {
-    name: "Milo",
-    sheds: true,
-    size: "big",
-    pottyTrained: true,
-    likesSnuggles: true,
-    likesFetch: true
- }
-const canAdopt = dog.pottyTrained&&!dog.sheds&&((dog.likesSnuggles&&dog.likesFetch)||(dog.likesFetch||dog.likesSnuggles));
-console.log(canAdopt);
 
- //для пенни 
+// управление элементами массива
+const users = ['Аня','Вика','Катя'];
+console.log(users);
+users[2] = 'Кристина';// меняет элемент массива с индексом 2 на  Кристину.т.е. вместо кати теперь в массиве кристина
+// console.log(users);
+// users[3] = 'Никита';// добавляет  на индекс элемента 3 элемент 'Никита'
+// console.log(users);
+// users.push('Никита');// push() Добавляет в конец  массива элемент внутри скобок. 
+// console.log(users);
 
-	let name1= "Penny";
-	let sheds1= false;
-	let size1= "small";
-	let pottyTrained1= true;
-	let likesSnuggles1= true;
-	let likesFetch1= false;
-	const canAdopt1 = pottyTrained1&&!sheds1&&(likesFetch1||
-		likesSnuggles1);
-		console.log(canAdopt1);
+// const arrLenght = users.push('Никита');
+// console.log(arrLenght);// Возвращает длинну мутировавшего массива(вместе с никитой длина массива = 4)
+//  users.unshift('Вася');// добавляет в начало массива элемент. Василий станет под индкс элемента = 0 . все остальные сместяться
+//  users.pop();// удаляет  элементы из массива,удаляет последний элемент
+//  const el =users.pop();
+//  console.log(el);// выведет удаленный элемент
 
-	/* решение учителя dog.pottyTrained && (dog.likesSnuggles || dog.likesFetch) 
-&& !dog.sheds*/
+//  users.shift();// удаляет элемент массива с индексом 0. то есть самый первый
+//  const el2 =users.shift();
+//  console.log(el);// выведет удаленный элемент
+
+ //ПОИСК ЭЛЕМЕНТА
+//  const roles =['user','admin','manager'];
+//  const elIndex = roles.indexOf('admin');
+//  console.log(elIndex);// метод который ищет элемент в массиве, и если он есть выведет 1 в консоль,если не найдет -1.
+//  console.log(roles.includes('admin')); //выводит true and false есть или нет  данный элемент в массиве
+
+//  if(roles.includes('admin')){// если в массиве есть элемент 'admin'  то выведется в консоль 'доступ есть'
+	// console.log('доступ есть');
+//  }
+// clise,cplise,concat,reverse
+// const roles1 =['user','admin','manager','superuser'];
+// const res = roles1.slice(2);// не модифицирует исходный массив, обрезает и показывает с элемента под индексом 2( в нашем случае это 'manager','superuser')
+// console.log(roles1);
+// console.log(res);
+// 
+// const res2 = roles1.slice(2,4);//  в качестве  первого аргумента начальный индекс в качестве второго конечный индекс. т .е. обрежентся часть с первого включительно по второй не включая второй. и то что между ними выведется в консоль
+// console.log(roles1);
+// console.log(res2);
+
+// const res3 = roles1.slice(-1);// берет последний элемент массива
+// console.log(res3);
+
+// переходим к cplice
+// const res5 =roles1.splice(2);// модифицирует исходный массив.clise не модифицирует массив
+// console.log(res5);
+
+// const res5 =roles1.splice(2,2);// со второго индекса  два элемента и выведется в консоль
+// console.log(res5);
+
+// reverse 
+// const res8 =roles1.reverse();// переворачивает массив и модифицирует его.
+// console.log(res8);
+// 
+//конкатенация(складывание массивов)
+
+// const newRoles = ['sysadmin','developer'];
+// let res9 = roles1.concat(newRoles);
+// console.log(res9);
 
 
-//для Эмми
-let dog3 = {
-	name3: "Floof",
-	sheds3: true,
-	size3: "small",
-	pottyTrained3: true,
-	likesSnuggles3: false,
-	likesFetch3: true
-}
- const canAdopt3 = (dog3.size3 !=="big"||dog3.sheds3)&&
- (dog3.pottyTrained3||!dog3.likesSnuggles3)&&
- dog3.likesFetch3;
+//  из строки в массив
+// const roles1 =['user','admin','manager','superuser'];
+// const url = 'auth/user/login';
+// const res = url.split('/');// метод сплит split() принимает в себя символ по которым нам надо разбить строку на составные части и вернет массив
+// console.log(res);
 
- console.log(canAdopt3);
-
- /*
- Пользователь хочет приобрести игру в магазине. Он может это сделать только если:
-Eго баланс больше 1000 (balance) или число бонусов больше 100 (bonusBalance)
-Он не забанен (isBanned)
-Игра не куплена (isExist)
-Игра в продаже (isSelling)
-Напишите условие для покупки и выведите в консоль результат.
-*/ 
-
-const isBanned = true;
-const isExist =true;
-const isSelling = true;
-const balance =1001;
-const bonusBalance =100;
-
-let canBuy = (balance>1000||bonusBalance>100 )&&isSelling&&isExist&&isBanned;
-console.log(canBuy);
+// console.log(roles1.join('-'));
 
 /*
-Задание для упражнения:
-Пользователь:
-Возраст
-Наличие работы
-Деньги
-Нужно проверить может ли он купить новый MacBook за 2000$? Он может брать не только свои деньги, но и взять кредит. Ему дадут 500$, только если ему больше 24-х лет и он имеет работу, 100$ если ему просто больше 24-х лет и 0 в ином случае. Напишите функцию, которая принимает данные пользователя и товара и возвращает true или false.
+Дан список задач
+const tasks = ['Задача 1'];
 
+Сделать функции:
+Добавление задачи в конец
+Удаление задачи по названию
+Перенос задачи в начало списка по названию
+! Всегда меняем исходный массив 
 */
-let buyMac ={
-	age: 25,
-	canWork:true,
-	money: 1800,
-	ageCredit:100,
-	workKredit:500,
-	hasJob:true,
-	sale:2000,
-}
-function credit (age){
-	if(age>24&&buyMac.hasJob){
-		return 500;
-	}else if(age>24){
-		return 100;
-	}else 
-	return 0;
-};
-function buyThisMac (age,money,sale,hasJob){
-const creditMoney  = credit(age,hasJob)
-return sale<money+creditMoney;
-};
 
-console.log(buyThisMac(25,1080,2000,true));
+// let tasks = ['Задача 1'];
+// 
+//   function AddElement(elem) {
+	// let addElem = tasks.push(`${elem}`);
+	// console.log(tasks);
+//  }
+//  AddElement('Задача 2');
+//  AddElement('Задача 3');
+//  AddElement('Задача 4');
+// 
+// function deleteElem(elem){
+	// const index = elem.indexOf(elem);
+	// if( index === -1){
+		// return;
+	// }
+	// return tasks.splise(index,1);
+// }
+// 
+// 
+// function migrateElem(elem){
+// const result = deleteElem(elem)
+// if(!result){
+	// return;
+// }
+// tasks.unshift(result[0]);
+// }
+// 
+
+//деструктуризация
+const userData = ['Антон',18,'Москва'];
+function getData(){
+	return ['Антон',18,'Москва'];
+}
+const [userName,age,city] = getData();
+// const userName = getData()[0];
+// const age =getData()[1];
+// const city =getData()[2];
+
+console.log(userName,age,city);
+
+// rest оператор
+
+const data = [1,2,3,4,5,6,7];
+const [one,two, ...others] = data;
+console.log(one,two, others);
