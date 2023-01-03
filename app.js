@@ -1,152 +1,145 @@
-
-// управление элементами массива
-const users = ['Аня','Вика','Катя'];
-console.log(users);
-users[2] = 'Кристина';// меняет элемент массива с индексом 2 на  Кристину.т.е. вместо кати теперь в массиве кристина
-// console.log(users);
-// users[3] = 'Никита';// добавляет  на индекс элемента 3 элемент 'Никита'
-// console.log(users);
-// users.push('Никита');// push() Добавляет в конец  массива элемент внутри скобок. 
-// console.log(users);
-
-// const arrLenght = users.push('Никита');
-// console.log(arrLenght);// Возвращает длинну мутировавшего массива(вместе с никитой длина массива = 4)
-//  users.unshift('Вася');// добавляет в начало массива элемент. Василий станет под индкс элемента = 0 . все остальные сместяться
-//  users.pop();// удаляет  элементы из массива,удаляет последний элемент
-//  const el =users.pop();
-//  console.log(el);// выведет удаленный элемент
-
-//  users.shift();// удаляет элемент массива с индексом 0. то есть самый первый
-//  const el2 =users.shift();
-//  console.log(el);// выведет удаленный элемент
-
- //ПОИСК ЭЛЕМЕНТА
-//  const roles =['user','admin','manager'];
-//  const elIndex = roles.indexOf('admin');
-//  console.log(elIndex);// метод который ищет элемент в массиве, и если он есть выведет 1 в консоль,если не найдет -1.
-//  console.log(roles.includes('admin')); //выводит true and false есть или нет  данный элемент в массиве
-
-//  if(roles.includes('admin')){// если в массиве есть элемент 'admin'  то выведется в консоль 'доступ есть'
-	// console.log('доступ есть');
-//  }
-// clise,cplise,concat,reverse
-// const roles1 =['user','admin','manager','superuser'];
-// const res = roles1.slice(2);// не модифицирует исходный массив, обрезает и показывает с элемента под индексом 2( в нашем случае это 'manager','superuser')
-// console.log(roles1);
-// console.log(res);
-// 
-// const res2 = roles1.slice(2,4);//  в качестве  первого аргумента начальный индекс в качестве второго конечный индекс. т .е. обрежентся часть с первого включительно по второй не включая второй. и то что между ними выведется в консоль
-// console.log(roles1);
-// console.log(res2);
-
-// const res3 = roles1.slice(-1);// берет последний элемент массива
-// console.log(res3);
-
-// переходим к cplice
-// const res5 =roles1.splice(2);// модифицирует исходный массив.clise не модифицирует массив
-// console.log(res5);
-
-// const res5 =roles1.splice(2,2);// со второго индекса  два элемента и выведется в консоль
-// console.log(res5);
-
-// reverse 
-// const res8 =roles1.reverse();// переворачивает массив и модифицирует его.
-// console.log(res8);
-// 
-//конкатенация(складывание массивов)
-
-// const newRoles = ['sysadmin','developer'];
-// let res9 = roles1.concat(newRoles);
-// console.log(res9);
-
-
-//  из строки в массив
-// const roles1 =['user','admin','manager','superuser'];
-// const url = 'auth/user/login';
-// const res = url.split('/');// метод сплит split() принимает в себя символ по которым нам надо разбить строку на составные части и вернет массив
-// console.log(res);
-
-// console.log(roles1.join('-'));
-
 /*
-Дан список задач
-const tasks = ['Задача 1'];
-
-Сделать функции:
-Добавление задачи в конец
-Удаление задачи по названию
-Перенос задачи в начало списка по названию
-! Всегда меняем исходный массив 
-*/
-
-// let tasks = ['Задача 1'];
+Задача
+вывести  в консоль строку"я люблю JS !" из массива  проходя циклом в обратном порядке не используя метод реверс
+*/ 
+// const  arr = ['!','JS','люблю','Я'];
 // 
-//   function AddElement(elem) {
-	// let addElem = tasks.push(`${elem}`);
-	// console.log(tasks);
-//  }
-//  AddElement('Задача 2');
-//  AddElement('Задача 3');
-//  AddElement('Задача 4');
+// function reverse(arr) {
+	// let rev = new Array;
+	// for (let i = arr.length - 1; i >= 0; i--) {
+		// rev.push(arr[i]);
+//   }
+//   return rev;
+// }
+// let re =reverse(arr);
+// console.log(re.join(' '));
 // 
-// function deleteElem(elem){
-	// const index = elem.indexOf(elem);
-	// if( index === -1){
-		// return;
+// 
+// const tasks =[[1,'Задача 1'],[2,'Задача 2']];
+// for(let i=0;i<tasks.length;i++){
+	// for(let j=0;j<tasks[i].length;j++){
+		// console.log(tasks[i][j]);
 	// }
-	// return tasks.splise(index,1);
 // }
 // 
 // 
-// function migrateElem(elem){
-// const result = deleteElem(elem)
-// if(!result){
-	// return;
+
+//
+// let i = 1;
+// while(i<5){
+	// console.log(`вывод - ${i} `)
+// i++;
 // }
-// tasks.unshift(result[0]);
+// Выведите с помощью цикла столбец чисел от 1 до 100.
+
+// for(let i = 0;i = 100;i++){
+	// console.log(`${i}`);
+// }
+// Выведите с помощью цикла столбец чисел от 100 до 1
+// for(let i = 100;i >= 1;i--){
+	// console.log(`${i}`);
+// };
+// Выведите с помощью цикла столбец четных чисел от 1 до 100
+// for(let i = 0;i <= 100;i+=2){
+	//  document.write(i + '<br>');
+	// }
+	// Заполните массив 10-ю иксами с помощью цикла
+	// let  arrr = [];
+	// for(let i = 0;i < 10;i++){
+		// arrr[i] = 'x';
+	// }
+	// console.log(arrr);
+	//Заполните массив числами от 1 до 10 с помощью цикла.
+	// let  arrr = [];
+	// for(let i = 0;i <= 10;i++){
+		// arrr[i] = i;
+	// }
+	// console.log(arrr);
+	//Заполните массив 10-ю случайными числами (дробями) от 0 до 1 с помощью цикла. Дроби округляйте до двух знаков в дробной части
+	// let  arrr = [];
+// for(let i = 0;i <= 10;i++){
+	// arrr.push(Math.random().toFixed(2));
+// }
+	// console.log(arrr);
+	/* 
+	Есть выгрузка операций пользователя 
+	const operations =[1000,-700,300,-500,10000];
+	а так же начальный баланс в 100$.
+	необходимо сделать функции расчета:
+	1) итогового баланса
+	2)наличия отрицательного баланса( если при  очередной операции  баланс <0 )
+	3)расчета среднего расхода и среднего дохода
+	*/
+	// const operations =[1000,-700,300,-500,
+		// 10000];
+//  const startingBalanse = 100;
+// function getBalanse (arrayOfOperations,initailBalanse){
+	// let balance = initailBalanse;
+	// for(const element of arrayOfOperations){
+		// balance+=element;
+	// }
+	// return balance;
+// }
+// console.log(getBalanse(operations,startingBalanse));
+// 
+// function checkOperation (arrayOfOperations,initailBalanse){
+	// let isOK = true;
+	// let balance = initailBalanse;
+// for(const element of arrayOfOperations){
+	// balance+=element;
+	// if(balance<0 ){
+		// isOK = false;
+		// break;
+	// }
+// }
+// return isOK;
+// }
+// console.log(checkOperation(operations,startingBalanse));
+// 
+// 
+// function add (a,b){
+	// return a+b;
+// }
+// function subtract (a,b){
+	// return a-b;
+// }
+// функция высшего порядка
+// function calculate (a,b,fn){
+	// console.log(fn.name);
+	// const res = fn(a,b);
+	// return res;
+// }
+// const res = calculate(3,5,add);
+// console.log(res);
+// 
+// возврат функции
+// 
+// function power(pow){
+	// return function(num){
+		// return num**pow;
+	// }
 // }
 // 
 
-//деструктуризация
-// const userData = ['Антон',18,'Москва'];
-// function getData(){
-	// return ['Антон',18,'Москва'];
-// }
-// const [userName,age,city] = getData();
-// const userName = getData()[0];
-// const age =getData()[1];
-// const city =getData()[2];
-
-// console.log(userName,age,city);
-
-// rest оператор
+// const power = pow => num =>num**pow;
+// const powerOfTwo = power(2);
+// console.log(powerOfTwo(5));
+// console.log(powerOfTwo(10));
 // 
-// const data = [1,2,3,4,5,6,7];
-// const [one,two, ...others] = data;
-// console.log(one,two, others);
+// let sq = x => y + x => z + y;
+// sq(2)(2)(2);
+// const score =[5,10,0,15];
+// 
+// score.forEach((scoreEl, i)=>{
+// console.log(`Раунд ${i+1}:${scoreEl}`)
+// });
+// 
 
-//практика 
-/*Дан произвольный url вида - https://purpleschool.ru/course/javascript
-Нужно сделать функцию, которая выводит в консоль:
-Протокол (https)
-Доменное имя (purpleschool.ru)
-Путь внутри сайта (/course/javascript)
-  */
- const url = 'https://purpleschool.ru/course/javascript';
-
-//  function getUrlParts(url){
-//  const [protocol,_,host, ... path] = url.split('/');
- 	// if(protocol === http:|| protocol === https:){
-		// if(!host.includes('.')){
-			// return;
-		// }
-		// console.log(protocol, _, host, path);
-		// console.log(`Протокол: ${protocol.split(':')[0]}`);
-		// console.log(`Доменное имя:${host}`);
-		// console.log(`Путь внутри сайта:/${path.join('/')}`);
- 	// }
-//  }
-//  getUrlParts(url);
-let arr = ['1', '2', '3', '4'];
-let [one, , ...three, four] = ['1', '2', '3', '4'];
-console.log(three);
+// const transactionInUSD =[10,-7,50,-10,100];
+// const transactionInRUB2 =transactionInUSD.map((transaction,i)=>{
+	// return transaction*60;
+// });
+// console.log(transactionInUSD);
+// console.log(transactionInRUB2);
+// 
+// 
