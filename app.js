@@ -1,78 +1,192 @@
-const userName = 'Вася Пупкин';
-// console.log(userName[0]);//выведет в консоль нулевой элемент строки. то есть букву B
-// отдельно для этого придумали  функцию charAt()
-// console.log(userName.charAt(2));
-// как получить длинну строки? с помощью метода length
-// console.log(userName.length);
-// как искать по строке? indexof
-// console.log(userName.indexOf('П'));//возвращает индекс буквы когда она попадается первый раз
-// console.log(userName.lastIndexOf('а'));//вернет последнее вхождение буквы
-// console.log(userName.includes('уп'));//проверяет на наличие такого символа и выдает тру или фалсе
-// console.log(userName.slice(5));
+// ​const userArray = ['Василий','Пупкин',24];
+// const user ={
+	// name:'Вася',
+	// surname:'Пупкин',
+	// age: 24
+	// skills:[
+		// 'Программирование',
+		// 'Готовка'
+	// ]
+// };
 
-// практика
-// const userName2 = 'Вася aka Terminator Пупкин';
-// console.log(userName2.slice(0, 5) + userName2.slice(20, 26));
+// console.log(user.name)//отдельно вывожу name:'Вася'
+// console.log(user);//вывел всего пользователя в логи
+// console.log(user.skills[0]);//вывел первый элемент массива skills
+// console.log(user.['skills']);//вывод массива скилс если с ним надо работать. пример ниже
+// const res = prompt('Введите свойство');
+// console.log(user[res]);
+//как задать обьекту новое свойство?
+// user['City'] ='Москва';
 
-//преобразование строки
-// const str = 'Вася Пупкин';
-// console.log(str.includes('a'));// показывает есть ли буква а  и выводит true
-// console.log(str.startsWith('В'));// проверяет начинается ли с буквы В и выводит true
-// console.log(str.endsWith('В'));// тоже что и startsWith но с конца
-// console.log(str.toLowerCase());// приведет всю строку к нижнему регистру
-// console.log(str.toUpperCase());//приведет всю строку к верхнему регистру
-// console.log(str.replace('В','Ф'));//Заменяют символ 
-// console.log(str.replaceAll('В','Ф'));// заменяет вообще все символы В на Ф. новый метод не везде работает))
-// console.log(str.replace(/В/g,'Ф'));//получим тоже самое что и replaceAll
-// практика
-// function isPhoneNumber(num){
-	// num =num.trim();
-	// num =num.replace('+7','8');
-	// if(!num.startsWith('8')){
-		// return false;
+//модифицировать существующее свойство обьекта
+// user.age = 30
+
+// const users = [
+	// {name: 'Вася',age:30},
+	// {name: 'Катя',age:18},
+	// {name:'Аня',age:40},
+	// {name:'Петя',age:25},
+// ];
+// console.log(users.sort((a,b)=>{
+	// return a.age -b.age
+// }));
+// 
+/*
+преобразовать пользователей до вида 
+{fullName:'Вася Пупкин',skillNum:2} 
+*/ 
+// const users = [
+	// {name:'Вася',
+	// surname: 'Пупкин',
+	// age:30,
+	// skills:['Разработка','DevOps']
+// 
+	// },
+	// {
+		// name:'Катя',
+		// surname:'Белова',
+		// age:18,
+		// skills:['Дизаин']
 	// }
-	// num = num.replaceAll('(','');
-	// num = num.replaceAll(')','');
-	// num = num.replaceAll(' ','');
-	// num = num.replaceAll('-','');
-	// if(num.length != 11){
-		// return false;
+// ];
+// const userData = users.map(user=>{
+// return {
+	// fullName:`${user.name} ${user.surname}`
+	// skillNum: `${user.skills.length}`
+// }
+// });
+// console.log(userData);
+// const user = {
+	// name:'Вася',
+	// surname:'Пупкин',
+	// age:24,
+	// getFullName:function (){
+		// return this.name + ' ' +this.surname;
 	// }
-	// let onlyNumber = true;
-	// for(const char of num){
-		// if(isNaN(Number(char))){
-			// onlyNumber = false;
-			// break
+// };
+// 
+// const wallet ={
+	// balanse:0,
+	// operations:[],
+	// increase:function(sum,reason){
+		// this.balanse+=sum;
+		// this.operations.push({
+			// reason:reason,
+			// sum:sum
+		// })
+		// return true;
+	// },
+	// decrease:function(sum,reason){
+		// if(this.balanse < sum){
+			// console.log('Недостаточно баланса');
+			// return false
 		// }
-	// };
-// return onlyNumber;
-// };
-// console.log(isPhoneNumber());
+		// this.balanse-= sum;
+		// this.operations.push({
+			// reason:reason,
+			// sum:-sum
+		// })
+		// return true;
+	// },
+	// getOperationLenght:function(
+	// ){
+		// return this.operations.length;
+	// }
+// }
+// console.log(wallet.increase(1000,'Зарплата'));
+// console.log(wallet.getOperationLenght());
+// console.log(wallet.decrease(2000,'Покупка ноутбука'));
+// console.log(wallet.getOperationLenght());
+// console.log(wallet.decrease(500,'Покупка телефона'));
+// console.log(wallet.balanse);
 
-// строки и массивы
+//итерация по обьектам
+// const cities ={
+	// msk:{
+		// lt:200,
+		// temp:25
+	// }
+	// spb:{
+		// lt:100,
+		// temp:20
+	// }
+// }
 
-// const userFullName = 'Вася Пупкин Васильевич';
-// console.log(userFullName.split(' '));// разбивка  строки на массив
-// const [firstName,familyName,lastName] = userFullName.split(' ');
-// console.log(firstName);
-// console.log(familyName);
-// console.log(lastName);
-// 
-// const arr = ['Ты', 'Знаешь', 'JS'];//обьединение массива в строку
-// console.log(arr.join(' '));
-// 
-//дополнение строк
-// const film = 'Звездные войны';
-// console.log(film.padStart(50,'*'));// в начало  добавляет 50 символов и второй аргумент каким именно символом
-// console.log(film.padEnd(50,'*'));//добавляет 50 символов в конец
-// console.log(film.repeat(10));
-// 
-// упражнение макскировка карты
-// const card ='2342834503458353'
-// function safeCard (card){
-// card = card.slice(12,16).padStart(12,'*');
-// console.log(card);
+// let sumTemp = 0;
+// let citiesCount=Object.keys(cities);//чтобы определить длинну обьекта у нас есть object.keys().он из ключей делает массив
+// for(const key in cities){
+	// console.log(key);
+	// citiesCount++;
+	// sumTemp+=cities[key].temp;
+// }
+// console.log(sumTemp/citiesCount)
+// деструктуризация и Rest
+// let user ={
+// name:'Вася',
+// age:40,
+// city:'Moscow'
 // };
-// safeCard(card);
-let str = 'How are you?';
-console.log(str.split(' ')[1]);​
+// const {age,name} = user// в скопках показываем что хотим получить(например возраст и  имя)
+
+//можно  использоать рест оператор
+// const {age...userWithoutAge} = user;
+// console.log(userWithoutAge)// тут выведутся остальные данные кроме возраста
+// 
+// const additionalData ={
+	// skills:['Разработка ','Дизаин']
+// };
+// user.skills =additionalData.skills;// используется чтобы добавить инфу пользователю. но не очень удобно поэтому юзают спред оператор
+// user ={
+	// ...user,
+	// ...additionalData
+// };
+// 
+// а че такое optional chaining?
+//как осуществляется доступ к свойствам (если этих свойств может и не быть)
+// const cities ={
+	// msk:{
+		// temp:{
+			// celsius:25
+		// }
+	// }
+// }
+// console.log(cities.msk.temp.celsius);
+
+// const warehouse ={
+	// goods:[],
+	// findGoodById:function(id,product){
+		// const existedGood = this.goods.find(g=>g.id == good.id);
+		// return existedGood;
+// ;
+	// },
+	// addGood:function(good){
+		// this.goods.push({good});
+
+	// },
+	// getWeight:function(){
+		// return this.product.kg
+	// }
+// };
+// /*товары */
+// const car ={
+	// id:1,
+	// weight:{
+		// kg:1000
+	// },
+	// brand:'Ford'
+// };
+// const chair ={
+	// id:2,
+	// weight:{
+		// kg:2
+	// },
+	// 
+// };
+// const paper ={
+	// id:3,
+	// color:'red'
+// }
+let a = { name: 'Антон' };
+let b = a;
+b.id = 1;
+console.log(a);
