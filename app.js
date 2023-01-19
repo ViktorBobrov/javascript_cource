@@ -185,8 +185,4 @@
 // const paper ={
 	// id:3,
 	// color:'red'
-// }
-let a = { name: 'Антон' };
-let b = a;
-b.id = 1;
-console.log(a);
+/
