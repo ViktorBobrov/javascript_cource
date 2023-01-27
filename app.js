@@ -1,188 +1,183 @@
-// ​const userArray = ['Василий','Пупкин',24];
+
+// обьекты 
+// /*Объекты же используются для хранения коллекций различных значений и более сложных сущностей. В JavaScript объекты используются очень часто, это одна из основ языка. 
+// Объект может быть создан с помощью фигурных скобок {…} с необязательным списком свойств. Свойство – это пара «ключ: значение», где ключ – это строка (также называемая «именем свойства»), а значение может быть чем угодно.
+
+// пример
+// let user = {     // объект
+	// name: "John",  // под ключом "name" хранится значение "John"
+	// age: 30        // под ключом "age" хранится значение 30
+//  };
+// Для обращения к свойствам используется запись «через точку»:
+// alert( user.name ); // John
+// alert( user.age ); // 30
+// добавление свойства обьекта
+// user.isAdmin = true;
+// console.log(user);//смотри консоль
+// Для удаления свойства мы можем использовать оператор delete:
+// delete user.age;
+// Имя свойства может состоять из нескольких слов, но тогда оно должно быть заключено в кавычки:
+// "likes birds": true //но с эим есть ньюанс, при обращнии к нему через точку может вылезть ошибка чтобы обратится к нему надо заключать в квадрадны скобки[]
+// присваивание значения свойству
+// user["likes birds"] = true;
+
+// получение значения свойства
+// alert(user["likes birds"]); // true
+
+// удаление свойства
+// delete user["likes birds"];
+// Квадратные скобки также позволяют обратиться к свойству, имя которого может быть результатом выражения. Например, имя свойства может храниться в переменной:
+// let key = "likes birds";
+
+// то же самое, что и user["likes birds"] = true;
+// user[key] = true;
+
+// Вычисляемые свойства
+// мы моем использовать квадратные скобки для создания вычисляемого свойства
+// let fruit = prompt("Какой фрукт купить?", "apple");
+// 
+// let bag = {
+//   [fruit]: 5, // имя свойства будет взято из переменной fruit
+// };
+
+// alert( bag.apple ); // 5, если fruit="apple"
+
+// проверка сущевствования свойства. оператор 'in'.существует специальный оператор "in" для проверки существования свойства в объекте.
+// Синтаксис оператора:
+// "key" in object
+// где "key" проверяемое свойство где object название обьекта
+// пример 
+// let user = { name: "John", age: 30 };// это обьект
+
+// alert( "age" in user ); // true, user.age существует
+// alert( "blabla" in user ); // false, user.blabla не существует
+// Если мы опускаем кавычки, это значит, что мы указываем переменную, в которой находится имя свойства. Например:
+// let user = { age: 30 };
+// 
+// let key = "age";
+// alert( key in user ); // true, имя свойства было взято из переменной key
+
+/*цикл for(...in...) 
+СИНТАКСИС
+for (key in object) {
+//   тело цикла выполняется для каждого свойства объекта
+}
+*/
+// пример
+// let user = {
+	// name: "John",
+	// age: 30,
+	// isAdmin: true
+//  };
+//  
+//  for (let key in user) {
+	// ключи
+	// alert( key );  // name, age, isAdmin
+	// значения ключей
+	// alert( user[key] ); // John, 30, true
+//  }
+// let salaries = {
+	// John: 100,
+	// Ann: 160,
+	// Pete: 130
+//  };
+//  let sum = 0;
+//  for(key in salaries ){
+	// sum+=salaries[key];
+//  };
+//  alert(sum);
+// 'use strict'
+// const audi={
+	// make:'Audi',
+	// model:'A3',
+	// year:2021,
+	// damages:[],
+	// addDamage(part,rate){
+		// console.log(`У авто ${this.make}${this.model} ${this.year} добавленно: - повреждение ${part} со степенью ${rate}`);
+		// this.damages.push({
+			// part,
+			// rate
+		// })
+	// }
+// };
+// audi.addDamage('Капот',1);
+// const BMW={
+	// make:'BMW',
+	// model:'X5',
+	// year:2022,
+	// damages:[],
+// };
+// BMW.addDamage= audi.addDamage;
+// BMW.addDamage('Бампер',2);
+
+// const addDamageFunc = audi.addDamage;
+// addDamageFunc('Бампер',2);
+// addDamageFunc.call(BMW,'Бампер',2);//вызывает функию с помощью аргумента bmw а вторым аргументом передает 'Бампер',2
+// addDamageFunc.apply(BMW,['Бампер',2]);//вызывает функию с помощью аргумента bmw а вторым аргументом передает массив аргументов'Бампер',2
+
+/*bind связывает наш this  с фунцией которую мы хотим вызвать*/ 
+// 'use strict'
+// const audi ={
+	// make:'Audi',
+	// model:'A3',
+	// damages:[]
+// };
+
+// const carManipulation ={
+	// addDamage(part,rate){
+		// this.damages.push({part,rate});
+		// console.log(`Добавить повреждение на ${this.make} ${this.model}`);
+	// }
+// };
+// const addDamageAudi = carManipulation.addDamage.bind(audi);
+// addDamageAudi('крыло',3);
+
+// const addDamageAudiRoof = carManipulation.addDamage.bind(audi,'Крыша');
+// addDamageAudiRoof(5);
+// console.log(audi);
+
+
 // const user ={
-	// name:'Вася',
-	// surname:'Пупкин',
-	// age: 24
-	// skills:[
-		// 'Программирование',
-		// 'Готовка'
-	// ]
-// };
-
-// console.log(user.name)//отдельно вывожу name:'Вася'
-// console.log(user);//вывел всего пользователя в логи
-// console.log(user.skills[0]);//вывел первый элемент массива skills
-// console.log(user.['skills']);//вывод массива скилс если с ним надо работать. пример ниже
-// const res = prompt('Введите свойство');
-// console.log(user[res]);
-//как задать обьекту новое свойство?
-// user['City'] ='Москва';
-
-//модифицировать существующее свойство обьекта
-// user.age = 30
-
-// const users = [
-	// {name: 'Вася',age:30},
-	// {name: 'Катя',age:18},
-	// {name:'Аня',age:40},
-	// {name:'Петя',age:25},
-// ];
-// console.log(users.sort((a,b)=>{
-	// return a.age -b.age
-// }));
-// 
-/*
-преобразовать пользователей до вида 
-{fullName:'Вася Пупкин',skillNum:2} 
-*/ 
-// const users = [
-	// {name:'Вася',
-	// surname: 'Пупкин',
-	// age:30,
-	// skills:['Разработка','DevOps']
-// 
-	// },
-	// {
-		// name:'Катя',
-		// surname:'Белова',
-		// age:18,
-		// skills:['Дизаин']
-	// }
-// ];
-// const userData = users.map(user=>{
-// return {
-	// fullName:`${user.name} ${user.surname}`
-	// skillNum: `${user.skills.length}`
-// }
-// });
-// console.log(userData);
-// const user = {
-	// name:'Вася',
-	// surname:'Пупкин',
-	// age:24,
-	// getFullName:function (){
-		// return this.name + ' ' +this.surname;
-	// }
-// };
-// 
-// const wallet ={
-	// balanse:0,
-	// operations:[],
-	// increase:function(sum,reason){
-		// this.balanse+=sum;
-		// this.operations.push({
-			// reason:reason,
-			// sum:sum
-		// })
-		// return true;
-	// },
-	// decrease:function(sum,reason){
-		// if(this.balanse < sum){
-			// console.log('Недостаточно баланса');
-			// return false
-		// }
-		// this.balanse-= sum;
-		// this.operations.push({
-			// reason:reason,
-			// sum:-sum
-		// })
-		// return true;
-	// },
-	// getOperationLenght:function(
-	// ){
-		// return this.operations.length;
-	// }
-// }
-// console.log(wallet.increase(1000,'Зарплата'));
-// console.log(wallet.getOperationLenght());
-// console.log(wallet.decrease(2000,'Покупка ноутбука'));
-// console.log(wallet.getOperationLenght());
-// console.log(wallet.decrease(500,'Покупка телефона'));
-// console.log(wallet.balanse);
-
-//итерация по обьектам
-// const cities ={
-	// msk:{
-		// lt:200,
-		// temp:25
-	// }
-	// spb:{
-		// lt:100,
-		// temp:20
-	// }
+	// name:'Илья',
+	// password:'12345'
 // }
 
-// let sumTemp = 0;
-// let citiesCount=Object.keys(cities);//чтобы определить длинну обьекта у нас есть object.keys().он из ключей делает массив
-// for(const key in cities){
-	// console.log(key);
-	// citiesCount++;
-	// sumTemp+=cities[key].temp;
-// }
-// console.log(sumTemp/citiesCount)
-// деструктуризация и Rest
-// let user ={
-// name:'Вася',
-// age:40,
-// city:'Moscow'
-// };
-// const {age,name} = user// в скопках показываем что хотим получить(например возраст и  имя)
 
-//можно  использоать рест оператор
-// const {age...userWithoutAge} = user;
-// console.log(userWithoutAge)// тут выведутся остальные данные кроме возраста
-// 
-// const additionalData ={
-	// skills:['Разработка ','Дизаин']
-// };
-// user.skills =additionalData.skills;// используется чтобы добавить инфу пользователю. но не очень удобно поэтому юзают спред оператор
-// user ={
-	// ...user,
-	// ...additionalData
-// };
-// 
-// а че такое optional chaining?
-//как осуществляется доступ к свойствам (если этих свойств может и не быть)
-// const cities ={
-	// msk:{
-		// temp:{
-			// celsius:25
-		// }
-	// }
-// }
-// console.log(cities.msk.temp.celsius);
 
-// const warehouse ={
-	// goods:[],
-	// findGoodById:function(id,product){
-		// const existedGood = this.goods.find(g=>g.id == good.id);
-		// return existedGood;
-// ;
-	// },
-	// addGood:function(good){
-		// this.goods.push({good});
-
-	// },
-	// getWeight:function(){
-		// return this.product.kg
+// function removePassword(reset){
+	// if(reset){
+		// this.password =undefined;
+	// }else{
+		// this.password ='1'
 	// }
 // };
-// /*товары */
-// const car ={
-	// id:1,
-	// weight:{
-		// kg:1000
-	// },
-	// brand:'Ford'
+//  const resetUserPasword = removePassword.bind(user,true);
+//  resetUserPasword();
+//  console.log(user);
+
+ //intermediate inwoke function expression(IIFE)
+// function init(){
+	// console.log('start')
 // };
-// const chair ={
-	// id:2,
-	// weight:{
-		// kg:2
-	// },
-	// 
+// 
+// (function (){
+	// console.log('Start IIFO')
+// })();
+// 
+// Замыкания
+// function changeBalance () {
+// let balance  = 0;
+// return function(sum){
+	// balance+= sum;
+	// console.log(`Баланс:${balance}`)
+// }
 // };
-// const paper ={
-	// id:3,
-	// color:'red'
-/
+// const change =changeBalance();
+function a() {
+	let c = 1;
+	return function b() {
+		 return c++;
+	}
+}
+a()();
+console.log(a()());
