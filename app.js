@@ -185,4 +185,3 @@
 // const paper ={
 	// id:3,
 	// color:'red'
-/
